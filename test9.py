@@ -24,7 +24,7 @@ mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))
 # The relationship is measured with a value called the r-squared.
 # The r-squared value ranges from 0 to 1, where 0 means no relationship, and 1 means 100% related.
 # Python and the Sklearn module will compute this value for you, all you have to do is feed it with the x and y arrays:
-print(r2_score(y, mymodel(x))) 
+print(r2_score(y, mymodel(x))) # The result 0.94 shows that there is a very good relationship, and we can use polynomial regression in future predictions.
 
 #Then specify how the line will display, we start at position 1, and end at position 22
 myline = numpy.linspace(1, 22, 100)
@@ -37,3 +37,9 @@ plt.plot(myline, mymodel(myline))
 
 # Display the diagram
 plt.show() 
+
+
+# Now we can use the information we have gathered to predict future values.
+# Example: Let us try to predict the speed of a car that passes the tollbooth at around the time 17:00:
+speed = mymodel(17)
+print(speed) 
